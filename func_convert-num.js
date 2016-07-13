@@ -4,6 +4,10 @@
 function convertNum(num) {
 	num = Math.round(num * 100)/100; //Мягко(без добавления нулей) округляем до 2-х знаков 
 	return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");//Разбиваем на разряды и отделяем дробную часть запятой
+	/*Можно еще так, но не работает в IE11-
+		var numberFormat = new Intl.NumberFormat('ru-RU');
+		return numberFormat.format(num)
+	*/
 };
 //Выводим результат
 console.log( convertNum(43435345.4554565) );
