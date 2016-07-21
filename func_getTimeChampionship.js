@@ -46,7 +46,8 @@ function showTimeToChampionship() {
 	//Формирует строку, показывающую сколько осталось до дня Х в правильной форме.
 	//На вход получает объект. На выходе будет строка с остатком времени до дня Х
 	function createLineTimer(obj) {
-		var line, a;
+		var line = '',
+			a = null;
 
 		for(var key in obj) {
 			switch(key) {
@@ -70,7 +71,7 @@ function showTimeToChampionship() {
 				break;
 			}
 
-			line += obj[key] + " " + getWordEnding(obj[key], a);
+			line += obj[key] + " " + getWordEnding(obj[key], a) + " ";
 		}
 
 		return line;
