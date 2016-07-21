@@ -4,8 +4,9 @@
 */
 function searchStr(arr, str) { 
 	return arr.some(function(item) { //some()- перебирающий метод, возвратит true, если вызов функции вернёт true для какого-нибудь элемента arr
-		var regexp = new RegExp(str, "i");
-			result = item.search(regexp);
+		//Создаем регулярное выражение для поиска символа, слова или части строки.
+		var regexp = new RegExp(str, "i");// Флаг i указывает на регистронезависимый поиск
+			result = item.search(regexp);// Здесь осуществляется поиск. Если ничего не найдено search() вернет -1.
 		return ~result; //Работает так: ~result == -(result + 1). Если search() вернет -1, то -(-1 + 1) == 0
 	})
 };
