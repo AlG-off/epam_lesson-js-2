@@ -2,14 +2,18 @@
  по футболу 2018 (15 июля 2018). Слова «лет, месяцев, дней, минут, секунд» отображать в правильной форме,
 	в зависимости от количества (1 день, 2 дня, 5 дней и тд.)*/
 function showTimeToChampionship() {
-	var targetTime = new Date(2018,6,15), //Создаем дату дня Х
+	var targetTime = new Date(2018, 6, 15), //Создаем дату дня Х
 		timer = document.createElement("div"),
 		timeResidue;
-	
 	timer.setAttribute("id", "timer-championship");
 	timer.classList.add("timer");
 
 	document.body.appendChild(timer);
+
+	if(targetTime - Date.now()<0) {
+		timer.innerHTML = "Интересующее событие уже прошло :(";
+		return;
+	}
 
 	setTimeout( function t() {//Определяем таймер-планировщик
 		timeResidue = getTimeRemaining(targetTime - Date.now());//Вычисляем остаток времени до дня Х и
